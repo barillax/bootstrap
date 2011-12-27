@@ -6,7 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Wed Dec  7 20:14:59 EST 2011
+ * Date: Sat Dec 24 20:38:05 EST 2011
  */
 /* Reset.less
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -187,10 +187,10 @@ body {
   font-size: 13px;
   font-weight: normal;
   line-height: 18px;
-  color: #404040;
+  color: #ffffff;
 }
 .container {
-  width: 940px;
+  width: 880px;
   margin-left: auto;
   margin-right: auto;
   zoom: 1;
@@ -228,13 +228,13 @@ body {
   margin-left: 240px;
 }
 a {
-  color: #0069d6;
+  color: #d6aa0a;
   text-decoration: none;
   line-height: inherit;
   font-weight: inherit;
 }
 a:hover {
-  color: #00438a;
+  color: #8d7007;
   text-decoration: underline;
 }
 .pull-right {
@@ -391,6 +391,7 @@ a:hover {
  * ---------------------------------------------------------------------------------------- */
 p {
   font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 18px;
   margin-bottom: 9px;
@@ -405,8 +406,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: bold;
-  color: #404040;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #bfbfbf;
 }
 h1 small,
 h2 small,
@@ -516,6 +517,7 @@ blockquote {
 }
 blockquote p {
   font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   line-height: 18px;
   margin-bottom: 0;
@@ -523,6 +525,7 @@ blockquote p {
 blockquote small {
   display: block;
   font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
   line-height: 18px;
   color: #bfbfbf;
@@ -1715,12 +1718,12 @@ a.menu:after, .dropdown-toggle:after {
   color: #ffffff;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  background-color: #00438a;
+  background-color: #8d7007;
 }
 .pills .active a {
   color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  background-color: #0069d6;
+  background-color: #d6aa0a;
 }
 .pills-vertical > li {
   float: none;
@@ -2461,8 +2464,207 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   display: block;
 }
 .media-grid a:hover {
-  border-color: #0069d6;
+  border-color: #d6aa0a;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 40px;
+  background-color: #101a22;
+  overflow-x: hidden;
+}
+.topbar .logo {
+  padding: 5px 0px 0px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+.topbar .rslogo {
+  padding: 0px 0px 0px;
+  margin-left: 0px;
+  margin-bottom: -20px;
+}
+.topbar .me-icon, .topbar .help-icon {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding: 0px 5px 5px;
+}
+.no-arrow::after {
+  content: none;
+}
+.container-fluid {
+  min-width: 840px;
+}
+.container-fluid > .sidebar {
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  width: 200px;
+  padding-top: 20px;
+}
+.container-fluid > .content {
+  margin-left: 220px;
+}
+.boxed {
+  padding: 0;
+  min-height: 20px;
+  border: 1px solid #4c565b;
+}
+.boxed h3 {
+  line-height: 1;
+  margin: 5px 5px 8px 5px;
+}
+.boxed ul {
+  list-style: none;
+  margin: 0 0 0 0;
+}
+.boxed ul li a {
+  display: block;
+  float: none;
+  padding: 2px 4px 2px 4px;
+  clear: both;
+}
+.boxed ul li a img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.boxed ul li a:hover, .boxed ul li a.hover {
+  background-color: #272e34;
+  color: #ffffff;
+  text-decoration: none;
+}
+.span6point5 {
+  width: 370px;
+}
+.convo-header {
+  font-size: 24px;
+  line-height: 1;
+}
+.convo-header.small {
+  font-size: 16px;
+}
+.rehearsal-session-list {
+  margin-top: 87px;
+}
+.rehearsal-session-list .row {
+  margin-left: 0px;
+  margin-bottom: 2px;
+  background-color: #272e34;
+}
+.rehearsal-session-list .row > [class*="span"] {
+  margin-left: 0px;
+}
+.rehearsal-session-list .row > [class*="span"] img {
+  padding: 2px 2px 2px 2px;
+  vertical-align: middle;
+}
+.rehearsal-session-list .row > [class*="span"] h1,
+.rehearsal-session-list .row > [class*="span"] h2,
+.rehearsal-session-list .row > [class*="span"] h3,
+.rehearsal-session-list .row > [class*="span"] h4,
+.rehearsal-session-list .row > [class*="span"] h5 {
+  display: inline;
+  line-height: 1;
+}
+.rehearsal-session-list .row > .avatar {
+  width: 130px;
+  margin-right: 10px;
+}
+.rehearsal-session-list .row.conversation-header, .rehearsal-session-list .row.dialog-header {
+  border-top: 1px solid #4c565b;
+}
+.rehearsal-session-list .row.conversation-header {
+  position: fixed;
+  top: 40px;
+  left: 240px;
+  right: 20px;
+  height: 84px;
+  min-width: 620px;
+  z-index: 1000;
+  margin-bottom: 0px;
+  border-bottom: 2px solid #162126;
+}
+.rehearsal-session-list .row.dialog-header {
+  margin-top: 3px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid #162126;
+}
+.rehearsal-session-list .row.dialog-header > [class*="span"], .rehearsal-session-list .row.dialog-header.dialog-header > [class*="pull"] {
+  line-height: 50px;
+}
+.rehearsal-session-list .row .conversation-performance {
+  float: right;
+  padding-right: 20px;
+  margin: 0px 0px 0px 0px;
+  width: 35%;
+}
+.rehearsal-session-list .row .conversation-performance h1,
+.rehearsal-session-list .row .conversation-performance h2,
+.rehearsal-session-list .row .conversation-performance h3,
+.rehearsal-session-list .row .conversation-performance h4,
+.rehearsal-session-list .row .conversation-performance h5 {
+  line-height: 1;
+}
+.rehearsal-session-list .row .conversation-info {
+  float: left;
+  padding-right: 10px;
+}
+.rehearsal-session-list .row.utterance > [class*="span"], .rehearsal-session-list .row.utterance > [class*="pull"] {
+  line-height: 45px;
+}
+.rehearsal-session-list .row.utterance.npc > .avatar {
+  text-align: center;
+}
+.rehearsal-session-list .row.utterance.user {
+  background-color: #162126;
+  color: #fbfea2;
+}
+.rehearsal-session-list .row.utterance.user h1,
+.rehearsal-session-list .row.utterance.user h2,
+.rehearsal-session-list .row.utterance.user h3,
+.rehearsal-session-list .row.utterance.user h4,
+.rehearsal-session-list .row.utterance.user h5 {
+  color: #fbfea2;
+}
+.rehearsal-session-list .row.utterance.user > .avatar {
+  text-align: right;
+}
+.rehearsal-session-list .row.utterance:hover, .rehearsal-session-list .row.utterance.user:hover {
+  background-color: #0c171c;
+}
+.rehearsal-session-list .header-holder {
+  position: fixed;
+  top: 124px;
+  left: 240px;
+  right: 20px;
+  height: 46px;
+  min-width: 620px;
+  z-index: 999;
+  background-color: transparent;
+  background: transparent;
+}
+.sound-btn {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 5px 0px -5px;
+  padding: 0;
+  border: 0;
+}
+.sound-btn.npc {
+  background-image: url(./img/model-playback-normal.png);
+}
+.sound-btn.npc:hover {
+  background-image: url(./img/model-playback-mouseover.png);
+}
+.sound-btn.user {
+  background-image: url(./img/learner-playback-normal.png);
+}
+.sound-btn.user:hover {
+  background-image: url(./img/learner-playback-mouseover.png);
 }

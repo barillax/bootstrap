@@ -1,0 +1,253 @@
+// Toolbar and body
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 40px;
+  background-color: @backgroundDark;
+  overflow-x: hidden;
+}
+
+.topbar .logo {
+  padding: 5px 0px 0px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+.topbar .rslogo {
+  padding: 0px 0px 0px;
+  margin-left: 0px;
+  margin-bottom: -20px;
+}
+
+.topbar .me-icon, .topbar .help-icon {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding: 0px 5px 5px;
+}
+
+.no-arrow::after {
+  content: none;
+}
+
+// overall layout changes
+.container-fluid {
+  min-width: 840px; // 40px less than 880 to account for paddings
+  
+  > .sidebar {
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    width: 200px;
+    padding-top: 20px;
+  }
+  > .content {
+    margin-left: 220px;
+  }
+}
+
+// History sidebar
+
+.boxed {
+  padding: 0;
+  min-height: 20px;
+  border: 1px solid @ksLightGray;
+  
+  // header
+  h3 {
+    line-height: 1;
+    margin: 5px 5px 8px 5px;
+  }
+  
+  // list of conversations
+  ul {
+    list-style: none;
+    margin: 0 0 0 0;
+    
+    // conversation item; composed of an image and a title
+    li {
+      a {
+        display: block;
+        float: none;
+        padding: 2px 4px 2px 4px;
+        clear: both;
+        
+        img {
+          vertical-align: middle;
+          margin-right: 5px;
+        }
+        
+        // Hover state
+        &:hover,
+        &.hover {
+          background-color: @ksMediumGray;
+          color: @white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// History session list
+
+.span6point5 { 
+  .columns(6.5); 
+}
+
+// headers
+.convo-header {
+  font-size: 24px;
+  line-height: 1;
+  
+  &.small {
+    font-size: 16px;
+  }
+}
+
+.rehearsal-session-list {
+  // offset the list to be below the fixed conversation header
+  margin-top: 87px;
+  
+  .row {
+    margin-left: 0px;
+    margin-bottom: 2px;
+    background-color: @ksMediumGray;
+    
+    // ROW SPANS
+    // defaults for all spans in this grid
+    
+    > [class*="span"] {
+      margin-left: 0px;
+      img {
+        padding: 2px 2px 2px 2px;
+        vertical-align: middle;
+      }
+
+      h1, h2, h3, h4, h5 {
+        display: inline;
+        line-height: 1;
+      }
+    }
+    
+    // Avatar spans
+    > .avatar {
+      width: 130px;
+      margin-right: 10px;
+    }
+    
+    // HEADER ROWS
+    
+    &.conversation-header, &.dialog-header {
+      border-top: 1px solid @ksLightGray;
+    }
+    &.conversation-header {
+      position: fixed;
+      top: 40px;
+      left: 240px;
+      right: 20px;
+      height: 84px;
+      min-width: 620px;
+      z-index: 1000;
+      margin-bottom: 0px;
+      border-bottom: 2px solid @ksDarkGray;
+    }
+    &.dialog-header {
+      margin-top: 3px;
+      margin-bottom: 1px;
+      border-bottom: 1px solid @ksDarkGray;
+      > [class*="span"], &.dialog-header > [class*="pull"] {
+        line-height: 50px;
+      }
+    }
+    
+    // information about the user's performance in the conversation
+    .conversation-performance {
+      .pull-right;
+      padding-right: 20px;
+      margin: 0px 0px 0px 0px;
+      width: 35%;//230px;
+
+      h1, h2, h3, h4, h5 {
+        line-height: 1;
+      }
+    }
+    
+    .conversation-info {
+      float: left;
+      padding-right: 10px;
+    }
+    
+    // UTTERANCE ROWS
+    
+    &.utterance {
+      > [class*="span"], > [class*="pull"] {
+        line-height: 45px;
+      }
+      
+      // NPC overrides
+      &.npc > .avatar {
+        text-align: center;
+      }
+      
+      // User overrides
+      &.user {
+        background-color: @ksDarkGray;
+        color: @ksUserText;
+        
+         h1, h2, h3, h4, h5 {
+           color: @ksUserText;
+         }
+      }
+      &.user > .avatar {
+        text-align: right;
+      }
+      
+      &:hover, &.user:hover {
+        background-color: @ksOverUtterance;
+      }
+    }
+  }
+  
+  // special holder cell for dialog header rows when fixed
+  .header-holder {
+    position: fixed;
+    top: 124px;
+    left: 240px;
+    right: 20px;
+    height: 46px;
+    min-width: 620px;
+    z-index: 999;
+    background-color: transparent;
+    background: transparent;
+  }
+
+}
+
+// sound playback buttons
+.sound-btn {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 5px 0px -5px;
+  padding: 0;
+	border: 0;
+  
+  // NPC sounds
+  &.npc {
+    background-image: url(./img/model-playback-normal.png);
+    &:hover {
+      background-image: url(./img/model-playback-mouseover.png); 
+    }
+  }
+  
+  // User sounds
+  &.user {
+    background-image: url(./img/learner-playback-normal.png);
+    &:hover {
+      background-image: url(./img/learner-playback-mouseover.png); 
+    }
+  }
+}

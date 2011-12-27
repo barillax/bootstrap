@@ -15,7 +15,7 @@ Here's what the LESS version looks like:
 
 ``` html
 <link rel="stylesheet/less" type="text/css" href="lib/bootstrap.less">
-<script src="less.js" type="text/javascript"></script>
+<script src="../js/less.js" type="text/javascript"></script>
 ```
 
 Or if you prefer, the standard css way:
