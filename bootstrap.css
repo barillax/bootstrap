@@ -6,7 +6,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: Tue Jan 10 15:12:29 EST 2012
+ * Date: Tue Jan 10 15:27:15 EST 2012
  */
 /* Reset.less
  * Props to Eric Meyer (meyerweb.com) for his CSS reset file. We're using an adapted version here	that cuts out some of the reset HTML elements we will never need here (i.e., dfn, samp, etc).
@@ -2530,35 +2530,6 @@ body p {
   margin-bottom: -10px;
   padding: 0px 5px 5px;
 }
-.ksbg {
-  background-color: #39332e;
-}
-.swatch {
-  height: 20px;
-  width: 20px;
-  float: left;
-}
-.swatch.ksbg {
-  background-color: #39332e;
-}
-.swatch.kslight {
-  background-color: #6e6e6e;
-}
-.swatch.ksmedium {
-  background-color: #484848;
-}
-.swatch.ksdark {
-  background-color: #3a3838;
-}
-.swatch.ksover {
-  background-color: #352c28;
-}
-.swatch.ksusertext {
-  background-color: #fbfea2;
-}
-.swatch.kslink {
-  background-color: #d6aa0a;
-}
 .no-arrow {
   content: none;
 }
@@ -2733,15 +2704,4 @@ body p {
 }
 .rehearsal-session-list #session-table tbody tr.utterance.user td.text p {
   color: #fbfea2;
-}
-.foobar .header-holder {
-  position: fixed;
-  top: 124px;
-  left: 240px;
-  right: 20px;
-  height: 46px;
-  min-width: 620px;
-  z-index: 999;
-  background-color: transparent;
-  background: transparent;
 }

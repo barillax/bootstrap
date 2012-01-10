@@ -361,14 +361,6 @@ body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Segoe,Tahoma,Arial,sans-s
 .topbar .rslogo{padding:0px 0px 0px;margin-left:0px;margin-bottom:-20px;}
 .topbar .vr{border-left:1px solid #040404;border-right:1px solid #2F2F2F;height:26px;display:inline-block;margin:6px 3px 1px 3px;}
 .topbar .me-icon,.topbar .help-icon{margin-top:-10px;margin-bottom:-10px;padding:0px 5px 5px;}
-.ksbg{background-color:#39332e;}
-.swatch{height:20px;width:20px;float:left;}.swatch.ksbg{background-color:#39332e;}
-.swatch.kslight{background-color:#6e6e6e;}
-.swatch.ksmedium{background-color:#484848;}
-.swatch.ksdark{background-color:#3a3838;}
-.swatch.ksover{background-color:#352c28;}
-.swatch.ksusertext{background-color:#fbfea2;}
-.swatch.kslink{background-color:#d6aa0a;}
 .no-arrow{content:none;}
 .no-arrow::after{content:none;}
 .container-fluid{min-width:840px;}.container-fluid>.sidebar{position:fixed;top:40px;left:20px;width:200px;padding-top:20px;}.container-fluid>.sidebar h1,.container-fluid>.sidebar h2,.container-fluid>.sidebar h3,.container-fluid>.sidebar h4,.container-fluid>.sidebar h5{color:white;}
@@ -396,4 +388,3 @@ body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Segoe,Tahoma,Arial,sans-s
 .rehearsal-session-list #session-table tbody tr.utterance.user td{background-color:#3a3838;}.rehearsal-session-list #session-table tbody tr.utterance.user td.avatar{text-align:right;position:relative;}.rehearsal-session-list #session-table tbody tr.utterance.user td.avatar>img{margin-right:6px;}
 .rehearsal-session-list #session-table tbody tr.utterance.user td.avatar .correctness-icon{position:absolute;right:0px;top:12px;}
 .rehearsal-session-list #session-table tbody tr.utterance.user td.text p{color:#fbfea2;}
-.foobar .header-holder{position:fixed;top:124px;left:240px;right:20px;height:46px;min-width:620px;z-index:999;background-color:transparent;background:transparent;}

@@ -3,16 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Rosetta Stone ReFLEX</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <!-- styles -->
+    <link href="../bootstrap.css" rel="stylesheet">
+    
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    
-    <!-- styles -->
-    <link href="../bootstrap.css" rel="stylesheet">
     
     <!-- IE 7 workaround for border collapse -->
     <!--[if lt IE 8]>
@@ -77,34 +74,11 @@
             <li><a href="#"><img width="37" height="22" src="../img/convo_icon4.png">The Invite</a></li>
           </ul>
         </div>
-        <!-- table>
-          <tr>
-            <td class="ksbg">
-              <div class="swatch kslight"></div>
-              <div class="swatch ksmedium"></div>
-              <div class="swatch ksdark"></div>
-              <div class="swatch ksover"></div>
-              <div class="swatch ksusertext"></div>
-              <div class="swatch kslink"></div>
-            </td>
-          </tr>
-          <tr>
-            <td class="bg">
-              <div class="swatch light"></div>
-              <div class="swatch medium"></div>
-              <div class="swatch dark"></div>
-              <div class="swatch over"></div>
-              <div class="swatch usertext"></div>
-              <div class="swatch kslink"></div>
-            </td>
-          </tr>
-        </table -->
       </div>
       
       <div class="content rehearsal-session-list">
         <table id="session-table">
           <!-- Top row, with conversation info -->
-          <!-- Fix to top of the screen -->
           <thead>
             <tr class="conversation-header">
               <td class="conversation-image">
@@ -151,7 +125,7 @@
               </td>
             </tr>
 
-            <!-- User utterance -->
+            <!-- User utterance: correct -->
             <tr class="utterance user">
               <td class="avatar">
                 <img src="../img/user_avatar.png">
@@ -179,7 +153,7 @@
               </td>
             </tr>
 
-            <!-- User utterance -->
+            <!-- User utterance: incorrect -->
             <tr class="utterance user">
               <td class="avatar">
                 <img src="../img/user_avatar.png">
@@ -202,33 +176,5 @@
     <!-- Begin Javascript -->
     <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
     <script src="../js/bootstrap-dropdown.js"></script>
-    <script src="../js/waypoints.min.js"></script>
-    
-    <!-- A little JS to do sticky headers -->
-    <script type="text/javascript">
-      // track headers as they scroll in and out of view
-      var headerStack = [];
-      
-      $(document).ready(function() {
-        $.waypoints.settings.scrollThrottle = 30;
-        
-        // TODO: dynamically instantiate the header holder here
-        $('.dialog-header').first().clone().appendTo('.header-holder');
-        
-        $('.dialog-header').waypoint(function(event, direction) {
-          if ( direction === "down" ) {
-            headerStack.push( $('.header-holder > .dialog-header').detach() );
-            $(this).clone().appendTo('.header-holder');
-          } else {
-            if ( headerStack.length > 0 ) {
-              $('.header-holder > .dialog-header').detach();
-              headerStack.pop().appendTo('.header-holder');
-            }
-          }
-        }, {
-          offset: 127
-        });
-      });
-    </script>
   </body>
 </html>
