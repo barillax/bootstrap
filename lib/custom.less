@@ -1,10 +1,33 @@
-// Toolbar and body
+// Font mixins
+
+.standardFonts() {
+  font-family: "Helvetica Neue",Helvetica,"Segoe UI",Segoe,Tahoma,Arial,sans-serif;
+}
+.koreanFonts() {
+  font-family: Gulim,AppleGothic;
+}
+.japaneseFonts() {
+  font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .standardFonts();
+  h1, h2, h3, h4, h5, h6, p { .standardFonts(); }
+  
   padding-top: 40px;
   background-color: @backgroundDark;
   overflow-x: hidden;
+}
+
+// Font overrides for locales
+
+.ja-JP { 
+  .japaneseFonts();
+  h1, h2, h3, h4, h5, h6, p { .japaneseFonts(); }
+}
+.ko-KR { 
+  .koreanFonts();
+  h1, h2, h3, h4, h5, h6, p { .koreanFonts(); }
 }
 
 .topbar .logo {
@@ -18,15 +41,39 @@ body {
   margin-bottom: -20px;
 }
 
+.topbar .vr {
+  border-left: 1px solid #040404;
+  border-right: 1px solid #2F2F2F;
+  height: 26px;
+  display: inline-block;
+  margin: 6px 3px 1px 3px;
+}
+
 .topbar .me-icon, .topbar .help-icon {
   margin-top: -10px;
   margin-bottom: -10px;
   padding: 0px 5px 5px;
 }
 
-.no-arrow::after {
-  content: none;
+// testing colors
+.ksbg { background-color: @backgroundDark;}
+
+.swatch {
+  .square(20px);
+  float: left;
+  
+  &.ksbg { background-color: @backgroundDark; }
+  &.kslight { background-color: @ksLightGray; }
+  &.ksmedium { background-color: @ksMediumGray; }
+  &.ksdark { background-color: @ksDarkGray; }
+  &.ksover { background-color: @ksOverUtterance; }
+  &.ksusertext { background-color: @ksUserText; }
+  &.kslink { background-color: @linkColor; }
+  
 }
+
+.no-arrow { content: none; }
+.no-arrow::after { content: none; }
 
 // overall layout changes
 .container-fluid {
@@ -38,10 +85,12 @@ body {
     left: 20px;
     width: 200px;
     padding-top: 20px;
+    
+    h1, h2, h3, h4, h5 {
+      color: white;
+    }
   }
-  > .content {
-    margin-left: 220px;
-  }
+  > .content { margin-left: 220px; }
 }
 
 // History sidebar
@@ -51,7 +100,7 @@ body {
   min-height: 20px;
   border: 1px solid @ksLightGray;
   
-  // header
+  // Rehearsal and studio header
   h3 {
     line-height: 1;
     margin: 5px 5px 8px 5px;
@@ -76,8 +125,7 @@ body {
         }
         
         // Hover state
-        &:hover,
-        &.hover {
+        &:hover {
           background-color: @ksMediumGray;
           color: @white;
           text-decoration: none;
@@ -87,11 +135,31 @@ body {
   }
 }
 
-// History session list
+// sound playback buttons
 
-.span6point5 { 
-  .columns(6.5); 
+.sound-btn {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 5px 0px -5px;
+  padding: 0;
+	border: 0;
+  
+  &.npc {
+    background-image: url(./img/model-playback-normal.png);
+    &:hover { background-image: url(./img/model-playback-mouseover.png); }
+  }
+  &.user {
+    background-image: url(./img/learner-playback-normal.png);
+    &:hover { background-image: url(./img/learner-playback-mouseover.png); }
+  }
 }
+
+// History session list
 
 // headers
 .convo-header {
@@ -104,108 +172,106 @@ body {
 }
 
 .rehearsal-session-list {
-  // offset the list to be below the fixed conversation header
-  margin-top: 87px;
-  
-  .row {
-    margin-left: 0px;
-    margin-bottom: 2px;
-    background-color: @ksMediumGray;
+  #session-table {
+    border-collapse: separate; // lets us put borders at top and bottom of rows
     
-    // ROW SPANS
-    // defaults for all spans in this grid
-    
-    > [class*="span"] {
-      margin-left: 0px;
-      img {
-        padding: 2px 2px 2px 2px;
-        vertical-align: middle;
-      }
-
-      h1, h2, h3, h4, h5 {
-        display: inline;
-        line-height: 1;
-      }
-    }
-    
-    // Avatar spans
-    > .avatar {
-      width: 130px;
-      margin-right: 10px;
-    }
-    
-    // HEADER ROWS
-    
-    &.conversation-header, &.dialog-header {
+    td {
+      background-color: @ksMediumGray;
+      text-align: left;
+      vertical-align: middle;
+      border-bottom: 2px solid @backgroundDark;
       border-top: 1px solid @ksLightGray;
-    }
-    &.conversation-header {
-      position: fixed;
-      top: 40px;
-      left: 240px;
-      right: 20px;
-      height: 84px;
-      min-width: 620px;
-      z-index: 1000;
-      margin-bottom: 0px;
-      border-bottom: 2px solid @ksDarkGray;
-    }
-    &.dialog-header {
-      margin-top: 3px;
-      margin-bottom: 1px;
-      border-bottom: 1px solid @ksDarkGray;
-      > [class*="span"], &.dialog-header > [class*="pull"] {
-        line-height: 50px;
-      }
+      padding: 2px 2px 2px 2px;
+      line-height: 1;
     }
     
-    // information about the user's performance in the conversation
-    .conversation-performance {
-      .pull-right;
-      padding-right: 20px;
-      margin: 0px 0px 0px 0px;
-      width: 35%;//230px;
-
-      h1, h2, h3, h4, h5 {
-        line-height: 1;
-      }
+    img {
+      vertical-align: middle;
+      display: inline;
     }
     
-    .conversation-info {
-      float: left;
-      padding-right: 10px;
-    }
-    
-    // UTTERANCE ROWS
-    
-    &.utterance {
-      > [class*="span"], > [class*="pull"] {
-        line-height: 45px;
+    // header row
+    thead tr td {
+      &.conversation-image {
+        width: 130px;
+        img { max-width: 130px; }
       }
-      
-      // NPC overrides
-      &.npc > .avatar {
-        text-align: center;
-      }
-      
-      // User overrides
-      &.user {
-        background-color: @ksDarkGray;
-        color: @ksUserText;
+      &.conversation-info {
+        width: 250px;
+        position: relative;
         
-         h1, h2, h3, h4, h5 {
-           color: @ksUserText;
-         }
-      }
-      &.user > .avatar {
-        text-align: right;
+        img {
+          float: left;
+          padding-right: 10px;
+        }
+        div.conversation-names {
+          float: left;
+          padding-top: 10px;
+        }
+        div.conversation-performance {
+          position: absolute;
+          display: inline;
+          right: 0px;
+          top: 25%;
+          text-align: right;
+          padding-right: 10px;
+        }
       }
       
-      &:hover, &.user:hover {
-        background-color: @ksOverUtterance;
+    }
+    
+    // utterance rows
+    tbody tr {
+      p {
+        .convo-header.small;
+        line-height: 1;
+        margin: 0;
+      }
+      
+      &.dialog-header {
+        p {
+          vertical-align: middle;
+          display: inline;
+        }
+        td.practice {
+          text-align: right;
+          padding-right: 10px;
+          width: 150px;
+        }
+      }
+      
+      &.utterance {
+        &:hover td, &.user:hover td { background-color: @ksOverUtterance; }
+        
+        td { border-top: none; }
+        td.text { padding-left: 10px; }
+        td.sounds {
+          text-align: right;
+          width: 150px;
+        }
+        &.npc td.avatar { text-align: center; }
+        &.user td {
+          background-color: @ksDarkGray;
+          
+          &.avatar { 
+            text-align: right;
+            position: relative;
+            > img { margin-right: 6px; }
+            
+            .correctness-icon {
+              position: absolute;
+              right: 0px;
+              top: 12px;
+            }
+          }
+          &.text p { color: @ksUserText; }
+        }
       }
     }
   }
+}
+
+.foobar {
   
   // special holder cell for dialog header rows when fixed
   .header-holder {
@@ -220,34 +286,4 @@ body {
     background: transparent;
   }
 
-}
-
-// sound playback buttons
-.sound-btn {
-  width: 30px;
-  height: 30px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0px 5px 0px -5px;
-  padding: 0;
-	border: 0;
-  
-  // NPC sounds
-  &.npc {
-    background-image: url(./img/model-playback-normal.png);
-    &:hover {
-      background-image: url(./img/model-playback-mouseover.png); 
-    }
-  }
-  
-  // User sounds
-  &.user {
-    background-image: url(./img/learner-playback-normal.png);
-    &:hover {
-      background-image: url(./img/learner-playback-mouseover.png); 
-    }
-  }
 }

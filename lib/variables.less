@@ -16,11 +16,11 @@
 @white:             #fff;
 
 // KS colors
-@backgroundDark:    #101a22; //#39332E;
-@ksLightGray:       #4c565b;
-@ksMediumGray:      #272e34;
-@ksDarkGray:        #162126;
-@ksOverUtterance:   #0c171c;
+@backgroundDark:    #39332E; //#101a22; //
+@ksLightGray:       lighten(desaturate(spin(@backgroundDark, -7), 27%), 23%); // #4c565b;
+@ksMediumGray:      lighten(desaturate(spin(@backgroundDark, 1), 22%), 8%); // #272e34;
+@ksDarkGray:        lighten(desaturate(spin(@backgroundDark, -8), 9%), 2%); // #162126;
+@ksOverUtterance:   darken(saturate(spin(@backgroundDark, -8), 4%), 2%); // #0c171c;
 @ksUserText:        #fbfea2;
 
 // Accent Colors

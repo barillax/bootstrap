@@ -10,21 +10,31 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    
     <!-- styles -->
     <link href="../bootstrap.css" rel="stylesheet">
+    
+    <!-- IE 7 workaround for border collapse -->
+    <!--[if lt IE 8]>
+      <style type="text/css">
+        .rehearsal-session-list #session-table { border-collapse: collapse; }
+      </style>
+    <![endif]-->
   </head>
 
-  <body>
+  <body class="">
     <div class="topbar">
       <div class="topbar-inner">
         <div class="container-fluid">
           <a class="brand rslogo"><img src="http://resources.rosettastone.com/assets/comm/1322663661/images/logos/rosetta_stone_logo_large.png"></a>
           <a class="brand logo" href="#"><img src="http://resources.rosettastone.com/assets/comm/1322663661/images/reflex-logo-small-dark.png"></a>
           <ul class="nav secondary-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">RosettaWorld</a></li>
             <li class="dropdown" data-dropdown="dropdown">
               <a class="dropdown-toggle no-arrow" href="#">
-                <img class="help-icon" src="http://resources.rosettastone.com/assets/comm/1322663661/images/navbar/help_over.png">
+                Support
+                <!-- img class="help-icon" src="http://resources.rosettastone.com/assets/comm/1322663661/images/navbar/help_over.png" -->
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#">Report Abuse</a></li>
@@ -32,16 +42,15 @@
                 <li><a href="#">More Information</a></li>
               </ul>
             </li>
-            <li><a href="#">DTS</a></li>
-            <li><a href="#">World</a></li>
-            <li class="active"><a href="#">History</a></li>
+            <li><span class="vr"></span></li>
             <li class="dropdown" data-dropdown="dropdown">
-              <a class="dropdown-toggle" href="#about">
+              <a class="dropdown-toggle no-arrow" href="#about">
                 <img alt="Ori" class="me-icon" height="19" src="http://resources.rosettastone.com/assets/comm/1322663661/images/avatars/large/headphonesrr.png" width="19">
-                Me
+                Tazuki
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#">Profile</a></li>
+                <li><a href="#">History</a></li>
                 <li><a href="#">Account</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Logout</a></li>
@@ -68,326 +77,128 @@
             <li><a href="#"><img width="37" height="22" src="../img/convo_icon4.png">The Invite</a></li>
           </ul>
         </div>
+        <!-- table>
+          <tr>
+            <td class="ksbg">
+              <div class="swatch kslight"></div>
+              <div class="swatch ksmedium"></div>
+              <div class="swatch ksdark"></div>
+              <div class="swatch ksover"></div>
+              <div class="swatch ksusertext"></div>
+              <div class="swatch kslink"></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="bg">
+              <div class="swatch light"></div>
+              <div class="swatch medium"></div>
+              <div class="swatch dark"></div>
+              <div class="swatch over"></div>
+              <div class="swatch usertext"></div>
+              <div class="swatch kslink"></div>
+            </td>
+          </tr>
+        </table -->
       </div>
+      
       <div class="content rehearsal-session-list">
-        <!-- Top row, with conversation info -->
-        <!-- Fix to top of the screen -->
-        <div class="row conversation-header" id="conversation-header">
-          <div class="span6point5">
-            <div class="conversation-info">
-              <img src="../img/convo_title.png">
-              <img src="../img/convo_avatar.png">
-            </div>
-            <div class="conversation-info">
-              <p class="convo-header small">Terry</p>
-              <p class="convo-header">Office Visit</p>
-            </div>
-          </div>
-          <div class="conversation-performance">
-            <p class="convo-header small">You are performing well with this content.</p>
-            <p class="convo-header small">Recent Session: 12/15</p>
-          </div>
-        </div>
-      
-        <div class="row header-holder">
-        </div>
-      
-        <!-- Dialog title row -->
-        <!-- Use some JQuery to make each fix to the top as we scroll -->
-        <div class="row dialog-header">
-          <div class="span6point5">
-            <img class="dialog-icon" src="../img/transcript-dialog-icon-01.png">
-            <h4>September 21 &rarr; Dialog 1</h4>
-          </div>
-          <div class="pull-right">
-              <button class="btn primary">Practice</button>
-          </div>
-        </div>
-        
-        <!-- Utterance rows -->
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- Dialog title row -->
-        <!-- Use some JQuery to make each fix to the top as we scroll -->
-        <div class="row dialog-header">
-          <div class="span6point5">
-            <img class="dialog-icon" src="../img/transcript-dialog-icon-02.png">
-            <h4>September 21st &rarr; Dialog 2</h4>
-          </div>
-          <div class="pull-right">
-              <button class="btn primary">Practice</button>
-          </div>
-        </div>
-        
-        <!-- Utterance rows -->
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- User utterance -->
-        <div class="row utterance user">
-          <div class="span3 avatar">
-            <img src="../img/user_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>Great, I have a few minutes right now.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn user"></button>
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
-      
-        <!-- NPC utterance -->
-        <div class="row utterance npc">
-          <div class="span3 avatar">
-            <img src="../img/npc_avatar.png">
-          </div>
-          <div class="span7">
-            <h4>I'd like you to meet someone, Terry.</h4>
-          </div>
-          <div class="pull-right">
-            <button class="sound-btn npc"></button>
-          </div>
-        </div>
+        <table id="session-table">
+          <!-- Top row, with conversation info -->
+          <!-- Fix to top of the screen -->
+          <thead>
+            <tr class="conversation-header">
+              <td class="conversation-image">
+                <img src="../img/convo_title.png">
+              </td>
+              <td colspan="2" class="conversation-info">
+                <img src="../img/convo_avatar.png">
+                <div class="conversation-names">
+                  <p class="convo-header small">Terry</p>
+                  <p class="convo-header">Office Visit</p>
+                </div>
+                <div class="conversation-performance">
+                  <p class="convo-header small">You are performing well with this content.</p>
+                  <p class="convo-header small">Recent Session: 12/15</p>
+                </div>
+              </td>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <!-- Dialog title row -->
+            <tr class="dialog-header">
+              <td colspan="2">
+                <img class="dialog-icon" src="../img/transcript-dialog-icon-01.png">
+                <p class="convo-header small">September 21 &rarr; Dialog 1</p>
+              </td>
+              <td class="practice">
+                  <button class="btn primary">Practice</button>
+              </td>
+            </tr>
+            
+            <!-- Utterance rows -->
+            
+            <!-- NPC utterance -->
+            <tr class="utterance npc">
+              <td class="avatar">
+                <img src="../img/npc_avatar.png">
+              </td>
+              <td class="text">
+                <p>I'd like you to meet someone, Terry.</p>
+              </td>
+              <td class="sounds">
+                <button class="sound-btn npc"></button>
+              </td>
+            </tr>
+
+            <!-- User utterance -->
+            <tr class="utterance user">
+              <td class="avatar">
+                <img src="../img/user_avatar.png">
+                <span class="correctness-icon"><img src="../img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
+              </td>
+              <td class="text">
+                <p>Great, I have a few minutes right now.</p>
+              </td>
+              <td class="sounds">
+                <button class="sound-btn user"></button>
+                <button class="sound-btn npc"></button>
+              </td>
+            </tr>
+            
+            <!-- NPC utterance -->
+            <tr class="utterance npc">
+              <td class="avatar">
+                <img src="../img/npc_avatar.png">
+              </td>
+              <td class="text">
+                <p>I'd like you to meet someone, Terry.</p>
+              </td>
+              <td class="sounds">
+                <button class="sound-btn npc"></button>
+              </td>
+            </tr>
+
+            <!-- User utterance -->
+            <tr class="utterance user">
+              <td class="avatar">
+                <img src="../img/user_avatar.png">
+                <span class="correctness-icon"><img src="../img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
+              </td>
+              <td class="text">
+                <p>Great, I have a few minutes right now.</p>
+              </td>
+              <td class="sounds">
+                <button class="sound-btn user"></button>
+                <button class="sound-btn npc"></button>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
       </div>
-    </div>
-  
+   </div>   
+    
     <!-- Begin Javascript -->
     <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
     <script src="../js/bootstrap-dropdown.js"></script>
