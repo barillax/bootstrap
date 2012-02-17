@@ -11,12 +11,21 @@
 }
 
 body {
-  .standardFonts();
-  h1, h2, h3, h4, h5, h6, p { .standardFonts(); }
-  
   padding-top: 40px;
   background-color: @backgroundDark;
-  overflow-x: hidden;
+  background: @backgroundDark url(./img/bg.png) repeat fixed;
+  .standardFonts();
+  h1, h2, h3, h4, h5, h6, p { .standardFonts(); }
+  color: @ksBodyText;
+  
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: @ksHeaderText;
+    small {
+      color: @ksHeaderText;
+    }
+  }
 }
 
 // Font overrides for locales
@@ -32,7 +41,7 @@ body {
 
 .topbar .logo {
   padding: 5px 0px 0px;
-  margin-left: 0px;
+  margin-left: 5px;
   margin-right: 20px;
 }
 .topbar .rslogo {
@@ -55,26 +64,16 @@ body {
   padding: 0px 5px 5px;
 }
 
-// testing colors
-//.ksbg { background-color: @backgroundDark;}
-//.swatch {
-//  .square(20px);
-//  float: left;
-//  &.ksbg { background-color: @backgroundDark; }
-//  &.kslight { background-color: @ksLightGray; }
-//  &.ksmedium { background-color: @ksMediumGray; }
-//  &.ksdark { background-color: @ksDarkGray; }
-//  &.ksover { background-color: @ksOverUtterance; }
-//  &.ksusertext { background-color: @ksUserText; }
-//  &.kslink { background-color: @linkColor; }
-//}
-
 .no-arrow { content: none; }
 .no-arrow::after { content: none; }
+a.menu:after,
+.dropdown-toggle:after {
+  content: none;
+}
 
 // overall layout changes
 .container-fluid {
-  min-width: 840px; // 40px less than 880 to account for paddings
+  min-width: 600px; //min-width: 840px; // 40px less than 880 to account for paddings
   
   > .sidebar {
     position: fixed;
@@ -83,24 +82,296 @@ body {
     width: 200px;
     padding-top: 20px;
     
-    h1, h2, h3, h4, h5 {
+    h1 {
       color: white;
+    }
+    
+    h2, h3, h4, h5 {
+      color: @ksHeaderText;
     }
   }
   > .content { margin-left: 220px; }
+}
+
+// Profile
+
+.container.profile {
+  width: 600px;
+  margin-top: 40px;
+}
+
+body.profile {
+  color: @ksBodyText_profile; 
+  h1, h2, h3, h4, h5, h6, p { color: @ksHeaderText_profile; }
+  
+  // Profile tabs
+  .tabs {
+    margin-bottom: 0px;
+    > li {
+      > a {
+        text-decoration: none;
+        background-color: #DFDFDF;
+        border-color: #EEE #EEE;
+        &:hover {
+          background-color: #fff;
+        }
+      }
+      &.active {
+        a {
+          color: black;
+          background-color: #fff;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+    
+    // Special "tab": manage subscription
+    #edit_profile_li {
+      float: right;
+      a {
+        text-decoration: underline;
+        color: #dedede;
+        border: transparent;
+        background-color: transparent;
+        //background-color: #DFDFDF;
+        //border-color: #EEE #EEE;
+
+        &:hover {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  
+  // General form styles
+  
+  input, textarea, select {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  fieldset {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  
+  form {
+    padding-right: 20px;
+    
+    .actions {
+      margin-right: -20px;
+      margin-bottom: -18px;
+      padding-left: 20px;
+    }
+  }
+  
+  // Form sub-section styles
+  
+  .profile_split, .profile_bottom, .profile_top {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #DDD;
+  }
+  
+  .profile_split.right {
+    float: right;
+    border: none;
+  }
+  
+  .profile_bottom {
+    border: none;
+  }
+  
+  .profile_top {
+    padding-top: 0px;
+  }
+  
+  #change_avatar_link {
+    position: absolute;
+    top: 123px;
+    right: 10px;
+    width: 120px;
+    text-align: center;
+  }
+  
+  #profile_mini_display {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  #profile_main_without_secondary_full, #profile_main_without_secondary {
+    border: 1px solid #DDD;
+    border-top-color: transparent;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    background-color: white;
+    position: relative;
+  }
+  
+  // Change avatar pop-up
+
+  .blockUI {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
+  
+  .close {
+    margin-top: 8px;
+  }
+  
+  #modal_avatar_chooser {
+    display: block;
+    width: 750px;
+    height: 430px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    color: rgb(0, 0, 0);
+    border-width: 3px 3px 3px 3px;
+    border-style: solid;
+    border-color: rgb(170, 170, 170);
+    border-image: initial;
+    background-color: #fff;
+  }
+  
+  #profile_main {
+    float: left;
+    width: 300px;
+    min-height: 440px;
+    position: relative;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 10px;
+    
+    .profile_image_wrapper {
+      float: left;
+      height: 115px;
+      width: 110px;
+    }
+    
+    #profile_image {
+      float: left;
+      overflow: hidden;
+      width: 99px;
+      height: 99px;
+      border: 1px solid black;
+    }
+  }
+  
+  .filter_title {
+    float: left;
+  }
+  select.filter {
+    float: left;
+    height: 190px;
+    width: 270px;
+  }
+  
+  #profile_secondary {
+    float: left;
+    width: 416px;
+    padding-top: 10px;
+  }
+  
+  #select_avatar {
+    .page_control {
+      height: 20px;
+      width: 416px;
+      text-align: center;
+      line-height: 23px;
+      background-color: #fff;
+      color: white;
+      
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+
+      &.enabled {
+        background-color: #DDD;
+        color: black;
+        cursor: pointer;
+        display: block;
+      }
+      
+      &.up {
+        margin-bottom: 2px;
+      }
+      &.down {
+        margin-top: 2px;
+      }
+    }
+    
+    .avatars {
+      width: 416px;
+      height: 320px;
+      overflow: hidden;
+      background: gainsboro url(http://reflex.rosettastone.com/assets/comm/1326382473/images/avatars-loading.gif) no-repeat 175px 127px;
+      &.loaded {
+        background: none;
+      }
+      .avatar {
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        float: left;
+        margin: 1px;
+        cursor: pointer;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+    }
+  }
+  
+  // Change email and password
+  
+  #edit_account_details, #change_password {
+    padding-left: 20px;
+    form {
+      margin-left: -20px;
+      label {
+        margin-right: 10px;
+      }
+    }
+  }
+  
+  #change_password_iframe_wrapper {
+    margin-left: -20px;
+  }
+  
+  // Change password iframe body
+  
+  &.password_iframe {
+    background: #fff;
+    padding-top: 0px;
+  }
 }
 
 // History sidebar
 
 .boxed {
   padding: 0;
+  padding-bottom: 5px;
   min-height: 20px;
-  border: 1px solid @ksLightGray;
+  border-top: 1px solid @ksCellHighlightColor;
+  background-color: white;
+  .border-radius(4px 4px 4px 4px);
   
   // Rehearsal and studio header
   h3 {
     line-height: 1;
     margin: 5px 5px 8px 5px;
+    color: @ksHeaderText;
   }
   
   // list of conversations
@@ -110,11 +381,20 @@ body {
     
     // conversation item; composed of an image and a title
     li {
+      border-top: 1px solid @ksCellHighlightColor;
+      border-bottom: 1px solid @ksCellHighlightColorBottom;
+      
+      &:first-child {
+        border-top: 1px solid @ksCellHighlightColorBottom;
+      }
+      
       a {
         display: block;
         float: none;
         padding: 2px 4px 2px 4px;
         clear: both;
+        background-color: @ksCellColor;
+        color: @linkColor;
         
         img {
           vertical-align: middle;
@@ -123,8 +403,8 @@ body {
         
         // Hover state
         &:hover {
-          background-color: @ksMediumGray;
-          color: @white;
+          background-color: @ksOverCellColor;
+          color: @ksUserText;
           text-decoration: none;
         }
       }
@@ -147,11 +427,11 @@ body {
 	border: 0;
   
   &.npc {
-    background-image: url(./img/model-playback-normal.png);
+    background-image: url(./img/model-playback-mousedown.png);
     &:hover { background-image: url(./img/model-playback-mouseover.png); }
   }
   &.user {
-    background-image: url(./img/learner-playback-normal.png);
+    background-image: url(./img/learner-playback-mousedown.png);
     &:hover { background-image: url(./img/learner-playback-mouseover.png); }
   }
 }
@@ -169,15 +449,32 @@ body {
 }
 
 .rehearsal-session-list {
+  margin-top: 73px;
+  
   #session-table {
     border-collapse: separate; // lets us put borders at top and bottom of rows
+    *border-collapse: collapse; // IE 7
+    
+    // Border radii
+    thead tr:first-child td:first-child {
+      .border-radius(4px 0 0 0);
+    }
+    thead tr:first-child td:last-child {
+      .border-radius(0 4px 0 0);
+    }
+    tbody tr:last-child td:first-child {
+      .border-radius(0 0 0 4px);
+    }
+    tbody tr:last-child td:last-child {
+      .border-radius(0 0 4px 0);
+    }
     
     td {
-      background-color: @ksMediumGray;
+      background-color: @ksCellColor;
       text-align: left;
       vertical-align: middle;
-      border-bottom: 2px solid @backgroundDark;
-      border-top: 1px solid @ksLightGray;
+      border-bottom: 1px solid @ksCellHighlightColorBottom; //@backgroundDark;
+      border-top: 1px solid @ksCellHighlightColor;
       padding: 2px 2px 2px 2px;
       line-height: 1;
     }
@@ -192,10 +489,11 @@ body {
       &.conversation-image {
         width: 130px;
         img { max-width: 130px; }
+        color: @ksHeaderText;
       }
       &.conversation-info {
-        width: 250px;
-        position: relative;
+        //position: relative;
+        color: @ksHeaderText;
         
         img {
           float: left;
@@ -206,12 +504,18 @@ body {
           padding-top: 10px;
         }
         div.conversation-performance {
-          position: absolute;
-          display: inline;
-          right: 0px;
-          top: 25%;
-          text-align: right;
-          padding-right: 10px;
+          float: right;
+          position: relative;
+          
+          div.perf-text-wrapper {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 300px;
+            padding-top: 10px;
+            padding-right: 20px;
+            text-align: right;
+          }
         }
       }
       
@@ -226,6 +530,8 @@ body {
       }
       
       &.dialog-header {
+        color: black;
+        
         p {
           vertical-align: middle;
           display: inline;
@@ -238,7 +544,7 @@ body {
       }
       
       &.utterance {
-        &:hover td, &.user:hover td { background-color: @ksOverUtterance; }
+        &:hover td, &.user:hover td { background-color: @ksOverCellColor; }
         
         td { border-top: none; }
         td.text { padding-left: 10px; }
@@ -248,11 +554,13 @@ body {
         }
         &.npc td.avatar { text-align: center; }
         &.user td {
-          background-color: @ksDarkGray;
+          background-color: @ksUserCellColor;
           
           &.avatar { 
+            display: block;
             text-align: right;
             position: relative;
+            
             > img { margin-right: 6px; }
             
             .correctness-icon {
@@ -267,18 +575,3 @@ body {
     }
   }
 }
-
-//.foobar {
-  // special holder cell for dialog header rows when fixed
-//  .header-holder {
-//    position: fixed;
-//    top: 124px;
-//    left: 240px;
-//    right: 20px;
-//    height: 46px;
-//    min-width: 620px;
-//    z-index: 999;
-//    background-color: transparent;
-//    background: transparent;
-//  }
-//}

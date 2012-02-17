@@ -1,7 +1,7 @@
 VERSION=1.4.0
 DATE=$(shell DATE)
-BOOTSTRAP = ./bootstrap.css
-BOOTSTRAP_MIN = ./bootstrap.min.css
+BOOTSTRAP = ./styles.css
+BOOTSTRAP_MIN = ./styles.min.css
 BOOTSTRAP_LESS = ./lib/bootstrap.less
 LESS_COMPRESSOR ?= `which lessc`
 UGLIFY_JS ?= `which uglifyjs`

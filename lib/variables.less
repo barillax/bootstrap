@@ -4,7 +4,7 @@
 
 
 // Links
-@linkColor:         #D6AA0A;
+@linkColor:         #0D6ACA;
 @linkColorHover:    darken(@linkColor, 15);
 
 // Grays
@@ -15,13 +15,30 @@
 @grayLighter:       lighten(@black, 90%);
 @white:             #fff;
 
-// KS colors
-@backgroundDark:    #39332E; //#101a22; //
-@ksLightGray:       lighten(desaturate(spin(@backgroundDark, -7), 27%), 23%); // #4c565b;
-@ksMediumGray:      lighten(desaturate(spin(@backgroundDark, 1), 22%), 8%); // #272e34;
-@ksDarkGray:        lighten(desaturate(spin(@backgroundDark, -8), 9%), 2%); // #162126;
-@ksOverUtterance:   darken(saturate(spin(@backgroundDark, -8), 4%), 2%); // #0c171c;
-@ksUserText:        #fbfea2;
+// Custom colors for Replay pages
+
+@backgroundDark:       #5e4e3e; //#39332E; //#101a22; // //#391B08;
+
+//@ksCellHighlightColor: #1288c1; //lighten(desaturate(spin(@backgroundDark, -7), 27%), 23%); // #4c565b;
+//@ksCellColor:          #0c6590; //lighten(desaturate(spin(@backgroundDark, 1), 22%), 8%); // #272e34;
+//@ksUserCellColor:      #095072; //lighten(desaturate(spin(@backgroundDark, -8), 9%), 2%); // #162126;
+//@ksOverCellColor:      #277fa8; //darken(saturate(spin(@backgroundDark, -8), 4%), 2%); // #0c171c;
+//@ksUserText:           #fbfea2;
+//@ksBodyText:           @darkGray;
+//@ksHeaderText:         @grayLight;
+
+@ksCellColor:          #F6F6F6;
+@ksCellHighlightColor: #ffffff;
+@ksCellHighlightColorBottom: #adadae;
+@ksUserCellColor:      #e8e9ea;
+@ksOverCellColor:      #CDCED0;
+@ksHeaderText:         black;
+@ksBodyText:           @gray;
+@ksUserText:           black;
+
+// Custom colors for profile page
+@ksBodyText_profile:        black;
+@ksHeaderText_profile:      @grayDark;
 
 // Accent Colors
 @blue:              #049CDB;

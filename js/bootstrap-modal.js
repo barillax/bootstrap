@@ -240,7 +240,7 @@
   $.fn.modal.Modal = Modal
 
   $.fn.modal.defaults = {
-    backdrop: false
+    backdrop: true
   , keyboard: false
   , show: false
   }

@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Rosetta Stone ReFLEX</title>
+    <!-- styles -->
+    <link href="styles.min.css" rel="stylesheet">
+    <link href="http://localhost/~oratner/favicon_16x16.ico" rel="shortcut icon" type="image/ico">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- Begin Javascript -->
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="./js/bootstrap-dropdown.js"></script>
+    <script src="./js/bootstrap-twipsy.js"></script>
+    <script src="./js/bootstrap-modal.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="./js/jquery.blockUI.js"></script>
+    <script src="./js/avatars_model.js"></script>
+    
+    <script type="text/javascript" charset="utf-8">
+      // modal avatar chooser
+      $(function() { 
+        $('#change_avatar_link').click(function() {
+          $.blockUI.defaults.css = {}
+          $.blockUI({
+            message: $('#modal_avatar_chooser'), 
+            overlayCSS: { cursor: null },
+            css: { position: "absolute"}
+          });
+          console.log("change avatar!")
+          // Load avatar info
+          $('#modal_avatar_chooser').avatarChooser({learner_guid: '3363b5ce-4e00-47fd-82d3-fb1704d9dd1c'});
+          
+          $('#modal_avatar_chooser .close').click(function() {
+            $.unblockUI();
+          });
+        });
+      });
+    </script>
+  </head>
+
+  <body class="profile">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand rslogo"><img src="./img/rosetta_stone_logo_large2.png"></a>
+          <a class="brand logo" href="#"><img src="http://resources.rosettastone.com/assets/comm/1329419739/images/logos/reflex-logo-small-dark.png"></a>
+          <ul class="nav secondary-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">World</a></li>
+            <li><span class="vr"></span></li>
+            <li class="active"><a href="#about" data-placement="below" rel='twipsy' title='Profile &amp; Subscription'><img alt="Ori" class="me-icon" height="19" src="http://resources.rosettastone.com/assets/comm/1322663661/images/avatars/large/headphonesrr.png" width="19">Tazuki</a></li>
+            <li><span class="vr"></span></li>
+            <li class="dropdown" data-dropdown="dropdown">
+              <a class="dropdown-toggle no-arrow" href="#">
+                <img class="help-icon" src="./img/down_arrow.png" -->
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="history.html">History</a></li>
+                <li class="divider"></li>
+                <li><a data-controls-modal="report_abuse_modal" data-toggle="modal" href="#report_abuse_modal">Report Abuse</a></li>
+                <li><a href="#">Help &amp; Support</a></li>
+                <li><a href="#">More Information</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Report Abuse Form and script -->
+    <div class="modal hide" id="report_abuse_modal" style="margin-bottom: 0px; margin-top: 0px; top: 70px; display: none;">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal" href="#" id="report_abuse_x">×</a>
+        <h3>_("Report_Abuse18579467")</h3>
+      </div>
+      <!-- Main dialog -->
+      <div id="main_report_abuse_dialog">
+        <form style="margin: 0; padding: 0;" action="#" id="report_abuse_form">
+          <div class="modal-body">
+            <p>
+              _("Thank_you_for_reporting_this_incident_to_us_Our_pr949019883")
+              _("If_you_did_not_intend_to_make_this_report_click_Ca797471781")
+            </p>
+            <p>
+              _("Please_tell_us_what_happened_including_the_approxi23546248")
+            </p>
+            <textarea id="report_text" style="width: 100%; height: 70px; padding: 0"></textarea> 
+            <div id="submission_failure_add_details" style="display: none;">_("Please_add_details_to_your_report547924478")</div>
+            <div id="submission_failure_reporting_error" style="display: none;">_("There_was_a_reporting_error_You_may_try_saving_you123729842")</div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn" value="Cancel923418370" id="cancel_abuse_report">
+            <input type="submit" class="btn primary" value="Save937482090" id="submit_abuse_report">
+          </div>
+        </form>
+      </div>
+      
+      <!-- Success message-->
+      <div id="report_abuse_success" style="display: none">
+        <div class="modal-body">
+          <p>_("Your_report_has_been_sent_Well_reply_to_you_soon738171453")
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn" value="OK5344345" id="close_abuse_report">
+        </div>
+      </div>
+    </div>
+    
+    <div id="modal_avatar_chooser" style="display: none; cursor: default;">
+      <div id="select_avatar">
+        <div class="modal-header">
+          <a href="#" class="close">×</a>
+          <h3>Select a new avatar</h3>
+        </div>
+        <div style="float:left">
+          <div id="profile_main">
+            <div class="profile_image_wrapper">
+              <div id="profile_image">
+                <img src="http://reflex.rosettastone.com/images/avatars/large/headphones_SS.png">
+              </div>
+            </div>
+            <h3 id="displayed_name_heading" title="Thomas">
+              Thomas
+            </h3>
+            <!-- h3 title="South Korea">
+              South Korea
+            </h3 -->
+            <h4 class="filter_title" value="">
+              Order by Color or Category
+            </h4>
+            <!-- Moved select here from profile_secondary -->
+            <select size="10" class="filter">
+              <option class="group_header" value="0" selected>
+                All Colors
+              </option>
+              <optgroup class="colors">
+                <option value="color:black">
+                  Black
+                </option>
+                <option value="color:white">
+                  White
+                </option>
+                <option value="color:blue">
+                  Blue
+                </option>
+                <option value="color:green">
+                  Green
+                </option>
+                <option value="color:brown">
+                  Brown
+                </option>
+                <option value="color:yellow">
+                  Yellow
+                </option>
+                <option value="color:red">
+                  Red
+                </option>
+                <option value="color:pink">
+                  Pink
+                </option>
+                <option value="color:orange">
+                  Orange
+                </option>
+                <option value="color:multi">
+                  Multi-colored
+                </option>
+              </optgroup>
+              <option class="group_header" value="0">
+                All Categories
+              </option>
+              <optgroup class="categories">
+                <option value="category:nature">
+                  Nature
+                </option>
+                <option value="category:food">
+                  Food
+                </option>
+                <option value="category:activities">
+                  Activities
+                </option>
+                <option value="category:flower">
+                  Flowers
+                </option>
+                <option value="category:body">
+                  Body
+                </option>
+                <option value="category:vehicle">
+                  Vehicles
+                </option>
+                <option value="category:abstract">
+                  Abstract
+                </option>
+                <option value="category:creature">
+                  Animal
+                </option>
+                <option value="category:clothing">
+                  Clothing
+                </option>
+                <option value="category:objects">
+                  Objects
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div id="profile_secondary">
+          <!-- Moved select into profile main above -->
+          <!-- h1 id="select_new_avatar_heading">
+            Select a new avatar
+          </h1 -->
+          <div class="avatars_wrapper">
+            <div class="page_control up unselectable" unselectable="on">PREVIOUS PAGE</div> <!-- adding unselectable class and attribute -->
+            <div class="avatars"></div>
+            <div class="page_control down unselectable" unselectable="on">NEXT PAGE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="profile" class="container profile">
+      <div id="profile_menu">
+        <ul id="profile_actions" class="tabs"> <!-- Added class tabs -->
+          <li class="active"><a href="#">Profile</a></li> <!-- Changed from 'current' to 'active' -->
+          <li>
+            <a href="email_and_password.html" class="account" id="edit_account_link" name="edit_account_link">E-mail and Password</a>
+          </li>
+          <li id="edit_profile_li">
+            <a href="#" id="launch_store_link" onclick="openWindow('http://reflex.rosettastone.com/register/my_account', '', 'toolbar=no, directories=no, scrollbars=yes, resizable=yes, status=no, menubar=no, width=750, height=540, top=0,left=0'); return false;" name="launch_store_link">Manage Online Subscription</a>
+          </li>
+        </ul>
+      </div>
+      <div id="profile_main_without_secondary_full">
+        <!-- h1 style="margin: 10px 0 0 10px;">
+          Edit Profile
+        </h1 -->
+        <div id="flash_errors"></div>
+        <div id="profile_form_1" class="collapsible">
+          <form action="http://reflex.rosettastone.com/users/update/3363b5ce-4e00-47fd-82d3-fb1704d9dd1c" class="form-stacked" id="edit_user_2707" method="post" onsubmit="new Ajax.Request('/users/update/3363b5ce-4e00-47fd-82d3-fb1704d9dd1c', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;" name="edit_user_2707"> <!-- Change class to form-stacked -->
+            <div style="margin:0;padding:0;display:inline">
+              <input name="_method" type="hidden" value="put">
+            </div>
+            <!-- div class="mock_link profile_divider open" onclick="toggleProfileDiv('form_1');">
+              <div class="expand_notice"></div>Basic Information
+            </div -->
+            <div id="form_1" class="collapse" style="overflow-x: visible; overflow-y: visible;">
+              <div id="change_avatar_link">
+                <a href="#">Change avatar</a>
+              </div>
+              <div id="profile_mini_display">
+                <!-- h1>
+                  This is what your miniprofile looks like:
+                </h1 -->
+                <div class="mouseover" id="mini_profile">
+                  <!-- div class="mo_top"></div -->
+                  <div class="user_info">
+                    <span class="image"><img alt="orir" src="http://reflex.rosettastone.com/images/avatars/large/headphones_SS.png"></span>
+                    <div>
+                      <!-- h1 id="displayed_name_in_mini_profile">
+                        orir
+                      </h1>
+                      <h3 id="user_location_in_mini_profile">
+                        South Korea
+                      </h3>
+                      <div id="simbio_language" class="lang_list">
+                        Simbio™: Japanese
+                      </div>
+                      <div id="target_language" class="lang_list">
+                        Learning: English (American)
+                      </div -->
+                    </div>
+                    <div class="clr"></div>
+                  </div>
+                  <!-- div class="mo_bottom"></div -->
+                </div>
+              </div>
+              <!-- p style="clear:both;">
+                <br -->
+                <input id="context" name="context" type="hidden"> <input id="tab" name="tab" type="hidden" value="profile_form_1">
+              <!-- /p -->
+              <div class="profile_top"> <!-- Renamed class to profile_top -->
+                <fieldset>
+                  <div class="hide_for_offline_edit">
+                    <div class="form_field">
+                      <label class="required" for="user_first_name">First name</label><input id="user_first_name" maxlength="50" name="user[first_name]" size="20" type="text" value="Ori">
+                    </div>
+                    <div class="form_field">
+                      <label class="required" for="user_last_name">Last name</label><input id="user_last_name" maxlength="50" name="user[last_name]" size="20" type="text" value="R">
+                    </div>
+                  </div>
+                  <div id="displayed_name_container">
+                    <div class="form_field">
+                      <label class="required" for="user_preferred_name">Display name</label><input id="user_preferred_name" maxlength="50" name="user[preferred_name]" size="20" type="text" value="orir">
+                    </div>
+                    <div class="">
+                      <p class="form_directions">
+                        Your display name is how other people on the site will see you. Please use your real first name, or choose an easily pronounceable first name so that other learners and your Studio Coach will know what to call you.
+                      </p>
+                      <p class="form_directions">
+                        Use alphabetic characters, not numbers or symbols.
+                      </p>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <!-- Moved from lower down the page to here -->
+              <div class="profile_split right">
+                <fieldset>
+                  <div class="form_field">
+                    <label for="user_contact_phone_country_code">Phone country code +<br>
+                    phone number</label><input class="double_text_field_1" id="user_contact_phone_country_code" maxlength="5" name="user[contact_phone_country_code]" size="3" style="width: 60px;" type="text"><input class="double_text_field_2" id="user_contact_phone_number" maxlength="32" name="user[contact_phone_number]" size="20" type="text">
+                  </div>
+                  <!-- div class="form_field">
+                    <label for="user_mobile_country_code">Phone country code +<br>
+                    Mobile phone number</label><input class="double_text_field_1" id="user_mobile_country_code" maxlength="5" name="user[mobile_country_code]" size="3" style="width: 60px;" type="text"><input class="double_text_field_2" id="user_mobile_number" maxlength="32" name="user[mobile_number]" size="20" type="text">
+                  </div -->
+                </fieldset>
+              </div>
+              <div class="profile_split">
+                <div class="form_field">
+                  <label for="user_birth_date">Birth date</label><select id="user_birth_date_1i" name="user[birth_date(1i)]">
+                    <option value="2012">
+                      2012
+                    </option>
+                    <option value="2011">
+                      2011
+                    </option>
+                    <option value="2010">
+                      2010
+                    </option>
+                    <option value="2009">
+                      2009
+                    </option>
+                    <option value="2008">
+                      2008
+                    </option>
+                    <option value="2007">
+                      2007
+                    </option>
+                    <option value="2006">
+                      2006
+                    </option>
+                    <option value="2005">
+                      2005
+                    </option>
+                    <option value="2004">
+                      2004
+                    </option>
+                    <option value="2003">
+                      2003
+                    </option>
+                    <option value="2002">
+                      2002
+                    </option>
+                    <option value="2001">
+                      2001
+                    </option>
+                    <option value="2000">
+                      2000
+                    </option>
+                    <option value="1999">
+                      1999
+                    </option>
+                    <option value="1998">
+                      1998
+                    </option>
+                    <option value="1997">
+                      1997
+                    </option>
+                    <option value="1996">
+                      1996
+                    </option>
+                    <option value="1995">
+                      1995
+                    </option>
+                    <option value="1994">
+                      1994
+                    </option>
+                    <option value="1993">
+                      1993
+                    </option>
+                    <option value="1992">
+                      1992
+                    </option>
+                    <option value="1991">
+                      1991
+                    </option>
+                    <option value="1990">
+                      1990
+                    </option>
+                    <option value="1989">
+                      1989
+                    </option>
+                    <option value="1988">
+                      1988
+                    </option>
+                    <option value="1987">
+                      1987
+                    </option>
+                    <option value="1986">
+                      1986
+                    </option>
+                    <option value="1985">
+                      1985
+                    </option>
+                    <option value="1984">
+                      1984
+                    </option>
+                    <option value="1983">
+                      1983
+                    </option>
+                    <option value="1982">
+                      1982
+                    </option>
+                    <option value="1981">
+                      1981
+                    </option>
+                    <option value="1980">
+                      1980
+                    </option>
+                    <option value="1979">
+                      1979
+                    </option>
+                    <option value="1978">
+                      1978
+                    </option>
+                    <option value="1977">
+                      1977
+                    </option>
+                    <option value="1976">
+                      1976
+                    </option>
+                    <option value="1975">
+                      1975
+                    </option>
+                    <option value="1974">
+                      1974
+                    </option>
+                    <option value="1973">
+                      1973
+                    </option>
+                    <option value="1972">
+                      1972
+                    </option>
+                    <option value="1971">
+                      1971
+                    </option>
+                    <option value="1970">
+                      1970
+                    </option>
+                    <option value="1969">
+                      1969
+                    </option>
+                    <option value="1968">
+                      1968
+                    </option>
+                    <option value="1967">
+                      1967
+                    </option>
+                    <option value="1966">
+                      1966
+                    </option>
+                    <option value="1965">
+                      1965
+                    </option>
+                    <option value="1964">
+                      1964
+                    </option>
+                    <option value="1963">
+                      1963
+                    </option>
+                    <option value="1962">
+                      1962
+                    </option>
+                    <option value="1961">
+                      1961
+                    </option>
+                    <option value="1960">
+                      1960
+                    </option>
+                    <option value="1959">
+                      1959
+                    </option>
+                    <option value="1958">
+                      1958
+                    </option>
+                    <option value="1957">
+                      1957
+                    </option>
+                    <option value="1956">
+                      1956
+                    </option>
+                    <option value="1955">
+                      1955
+                    </option>
+                    <option value="1954">
+                      1954
+                    </option>
+                    <option value="1953">
+                      1953
+                    </option>
+                    <option value="1952">
+                      1952
+                    </option>
+                    <option value="1951">
+                      1951
+                    </option>
+                    <option value="1950">
+                      1950
+                    </option>
+                    <option value="1949">
+                      1949
+                    </option>
+                    <option value="1948">
+                      1948
+                    </option>
+                    <option value="1947">
+                      1947
+                    </option>
+                    <option value="1946">
+                      1946
+                    </option>
+                    <option value="1945">
+                      1945
+                    </option>
+                    <option value="1944">
+                      1944
+                    </option>
+                    <option value="1943">
+                      1943
+                    </option>
+                    <option value="1942">
+                      1942
+                    </option>
+                    <option value="1941">
+                      1941
+                    </option>
+                    <option value="1940">
+                      1940
+                    </option>
+                    <option selected="selected" value="1939">
+                      1939
+                    </option>
+                    <option value="1938">
+                      1938
+                    </option>
+                    <option value="1937">
+                      1937
+                    </option>
+                    <option value="1936">
+                      1936
+                    </option>
+                    <option value="1935">
+                      1935
+                    </option>
+                    <option value="1934">
+                      1934
+                    </option>
+                    <option value="1933">
+                      1933
+                    </option>
+                    <option value="1932">
+                      1932
+                    </option>
+                    <option value="1931">
+                      1931
+                    </option>
+                    <option value="1930">
+                      1930
+                    </option>
+                    <option value="1929">
+                      1929
+                    </option>
+                    <option value="1928">
+                      1928
+                    </option>
+                    <option value="1927">
+                      1927
+                    </option>
+                    <option value="1926">
+                      1926
+                    </option>
+                    <option value="1925">
+                      1925
+                    </option>
+                    <option value="1924">
+                      1924
+                    </option>
+                    <option value="1923">
+                      1923
+                    </option>
+                    <option value="1922">
+                      1922
+                    </option>
+                    <option value="1921">
+                      1921
+                    </option>
+                    <option value="1920">
+                      1920
+                    </option>
+                    <option value="1919">
+                      1919
+                    </option>
+                    <option value="1918">
+                      1918
+                    </option>
+                    <option value="1917">
+                      1917
+                    </option>
+                    <option value="1916">
+                      1916
+                    </option>
+                    <option value="1915">
+                      1915
+                    </option>
+                    <option value="1914">
+                      1914
+                    </option>
+                    <option value="1913">
+                      1913
+                    </option>
+                    <option value="1912">
+                      1912
+                    </option>
+                  </select> <select id="user_birth_date_2i" name="user[birth_date(2i)]">
+                    <option value="1">
+                      January
+                    </option>
+                    <option value="2">
+                      February
+                    </option>
+                    <option selected="selected" value="3">
+                      March
+                    </option>
+                    <option value="4">
+                      April
+                    </option>
+                    <option value="5">
+                      May
+                    </option>
+                    <option value="6">
+                      June
+                    </option>
+                    <option value="7">
+                      July
+                    </option>
+                    <option value="8">
+                      August
+                    </option>
+                    <option value="9">
+                      September
+                    </option>
+                    <option value="10">
+                      October
+                    </option>
+                    <option value="11">
+                      November
+                    </option>
+                    <option value="12">
+                      December
+                    </option>
+                  </select> <input id="user_birth_date_3i" name="user[birth_date(3i)]" type="hidden" value="1">
+                </div>
+                <div class="form_field">
+                  <label class="required" for="user_gender">Gender</label><select id="user_gender" name="user[gender]">
+                    <option value="">
+                      Please select one...
+                    </option>
+                    <option value="male" selected="selected">
+                      male
+                    </option>
+                    <option value="female">
+                      female
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <!-- p style="clear:both;">
+                <br>
+              </p -->
+              <!-- p class="form_directions">
+                Where should we send you reminders or recognition of your progress?
+              </p -->
+              <!-- p style="clear:both;"></p -->
+              
+              <!-- Moved from bottom to here -->
+              <div class="profile_split right"> <!-- Renamed class to profile_split right -->
+                <fieldset>
+                  <fieldset class="preference_set with_relevant_field">
+                    <div>
+                      <div class="form_field">
+                        <label for="user_city">City</label><input id="user_city" name="user[city]" size="30" type="text">
+                      </div>
+                    </div>
+                    <!-- div style="float: left; width: 300px; padding-top: 3px;">
+                      <input id="hidden_show_city_on_mini_profile" name="preferences[show_city_on_mini_profile]" type="hidden" value=""> <input id="preferences_show_city_on_mini_profile" name="preferences[show_city_on_mini_profile]" type="checkbox" value="true">
+                      <div class="contact_preference_label">
+                        Show City on my mini-profile
+                      </div>
+                    </div -->
+                  </fieldset>
+                  <fieldset class="preference_set with_relevant_field">
+                    <div>
+                      <div class="form_field">
+                        <label for="user_state_province">State/Province</label><input id="user_state_province" name="user[state_province]" size="30" type="text">
+                      </div>
+                    </div>
+                    <!-- div style="float: left; width: 300px; padding-top: 3px;">
+                      <input id="hidden_show_state_on_mini_profile" name="preferences[show_state_on_mini_profile]" type="hidden" value=""> <input id="preferences_show_state_on_mini_profile" name="preferences[show_state_on_mini_profile]" type="checkbox" value="true">
+                      <div class="contact_preference_label">
+                        Show State/Province on my mini-profile
+                      </div>
+                    </div -->
+                  </fieldset>
+                  <div class="form_field">
+                    <label for="user_postal_code">Postal Code</label><input id="user_postal_code" name="user[postal_code]" size="30" type="text">
+                  </div>
+                </fieldset>
+              </div>
+              <div class="profile_bottom"> <!-- Renamed class to profile_bottom -->
+                <fieldset>
+                  <div class="form_field">
+                    <label for="user_address_line_1">Address</label><input class="double_text_field_1" id="user_address_line_1" name="user[address_line_1]" size="30" type="text"><input class="double_text_field_2" id="user_address_line_2" name="user[address_line_2]" size="30" type="text">
+                  </div>
+                  <div class="form_field">
+                    <label class="required" for="user_country_iso">Country</label><select id="user_country_iso" name="user[country_iso]">  <!-- removed size=4 -->
+                      <option value="4">
+                        Afghanistan
+                      </option>
+                      <option value="248">
+                        Åland Islands
+                      </option>
+                      <option value="8">
+                        Albania
+                      </option>
+                      <option value="12">
+                        Algeria
+                      </option>
+                      <option value="16">
+                        American Samoa
+                      </option>
+                      <option value="20">
+                        Andorra
+                      </option>
+                      <option value="24">
+                        Angola
+                      </option>
+                      <option value="660">
+                        Anguilla
+                      </option>
+                      <option value="10">
+                        Antarctica
+                      </option>
+                      <option value="28">
+                        Antigua and Barbuda
+                      </option>
+                      <option value="32">
+                        Argentina
+                      </option>
+                      <option value="51">
+                        Armenia
+                      </option>
+                      <option value="533">
+                        Aruba
+                      </option>
+                      <option value="36">
+                        Australia
+                      </option>
+                      <option value="40">
+                        Austria
+                      </option>
+                      <option value="31">
+                        Azerbaijan
+                      </option>
+                      <option value="44">
+                        Bahamas
+                      </option>
+                      <option value="48">
+                        Bahrain
+                      </option>
+                      <option value="50">
+                        Bangladesh
+                      </option>
+                      <option value="52">
+                        Barbados
+                      </option>
+                      <option value="112">
+                        Belarus
+                      </option>
+                      <option value="56">
+                        Belgium
+                      </option>
+                      <option value="84">
+                        Belize
+                      </option>
+                      <option value="204">
+                        Benin
+                      </option>
+                      <option value="60">
+                        Bermuda
+                      </option>
+                      <option value="64">
+                        Bhutan
+                      </option>
+                      <option value="68">
+                        Bolivia
+                      </option>
+                      <option value="70">
+                        Bosnia and Herzegovina
+                      </option>
+                      <option value="72">
+                        Botswana
+                      </option>
+                      <option value="76">
+                        Brazil
+                      </option>
+                      <option value="92">
+                        British Virgin Islands
+                      </option>
+                      <option value="96">
+                        Brunei Darussalam
+                      </option>
+                      <option value="100">
+                        Bulgaria
+                      </option>
+                      <option value="854">
+                        Burkina Faso
+                      </option>
+                      <option value="108">
+                        Burundi
+                      </option>
+                      <option value="116">
+                        Cambodia
+                      </option>
+                      <option value="120">
+                        Cameroon
+                      </option>
+                      <option value="124">
+                        Canada
+                      </option>
+                      <option value="132">
+                        Cape Verde
+                      </option>
+                      <option value="136">
+                        Cayman Islands
+                      </option>
+                      <option value="140">
+                        Central African Republic
+                      </option>
+                      <option value="148">
+                        Chad
+                      </option>
+                      <option value="830">
+                        Channel Islands
+                      </option>
+                      <option value="152">
+                        Chile
+                      </option>
+                      <option value="156">
+                        China
+                      </option>
+                      <option value="162">
+                        Christmas Island
+                      </option>
+                      <option value="170">
+                        Colombia
+                      </option>
+                      <option value="174">
+                        Comoros
+                      </option>
+                      <option value="184">
+                        Cook Islands
+                      </option>
+                      <option value="188">
+                        Costa Rica
+                      </option>
+                      <option value="384">
+                        Côte d'Ivoire
+                      </option>
+                      <option value="191">
+                        Croatia
+                      </option>
+                      <option value="192">
+                        Cuba
+                      </option>
+                      <option value="196">
+                        Cyprus
+                      </option>
+                      <option value="203">
+                        Czech Republic
+                      </option>
+                      <option value="180">
+                        DR Congo
+                      </option>
+                      <option value="208">
+                        Denmark
+                      </option>
+                      <option value="262">
+                        Djibouti
+                      </option>
+                      <option value="212">
+                        Dominica
+                      </option>
+                      <option value="214">
+                        Dominican Republic
+                      </option>
+                      <option value="218">
+                        Ecuador
+                      </option>
+                      <option value="818">
+                        Egypt
+                      </option>
+                      <option value="222">
+                        El Salvador
+                      </option>
+                      <option value="226">
+                        Equatorial Guinea
+                      </option>
+                      <option value="232">
+                        Eritrea
+                      </option>
+                      <option value="233">
+                        Estonia
+                      </option>
+                      <option value="231">
+                        Ethiopia
+                      </option>
+                      <option value="234">
+                        Faeroe Islands
+                      </option>
+                      <option value="238">
+                        Falkland Islands (Malvinas)
+                      </option>
+                      <option value="242">
+                        Fiji
+                      </option>
+                      <option value="246">
+                        Finland
+                      </option>
+                      <option value="250">
+                        France
+                      </option>
+                      <option value="254">
+                        French Guiana
+                      </option>
+                      <option value="258">
+                        French Polynesia
+                      </option>
+                      <option value="260">
+                        French Southern Territories
+                      </option>
+                      <option value="266">
+                        Gabon
+                      </option>
+                      <option value="270">
+                        Gambia
+                      </option>
+                      <option value="268">
+                        Georgia
+                      </option>
+                      <option value="276">
+                        Germany
+                      </option>
+                      <option value="288">
+                        Ghana
+                      </option>
+                      <option value="292">
+                        Gibraltar
+                      </option>
+                      <option value="300">
+                        Greece
+                      </option>
+                      <option value="304">
+                        Greenland
+                      </option>
+                      <option value="308">
+                        Grenada
+                      </option>
+                      <option value="312">
+                        Guadeloupe
+                      </option>
+                      <option value="316">
+                        Guam
+                      </option>
+                      <option value="320">
+                        Guatemala
+                      </option>
+                      <option value="831">
+                        Guernsey
+                      </option>
+                      <option value="324">
+                        Guinea
+                      </option>
+                      <option value="624">
+                        Guinea-Bissau
+                      </option>
+                      <option value="328">
+                        Guyana
+                      </option>
+                      <option value="332">
+                        Haiti
+                      </option>
+                      <option value="334">
+                        Heard Island and McDonald Islands
+                      </option>
+                      <option value="336">
+                        Holy See
+                      </option>
+                      <option value="340">
+                        Honduras
+                      </option>
+                      <option value="344">
+                        Hong Kong
+                      </option>
+                      <option value="348">
+                        Hungary
+                      </option>
+                      <option value="352">
+                        Iceland
+                      </option>
+                      <option value="356">
+                        India
+                      </option>
+                      <option value="360">
+                        Indonesia
+                      </option>
+                      <option value="364">
+                        Iran
+                      </option>
+                      <option value="368">
+                        Iraq
+                      </option>
+                      <option value="372">
+                        Ireland
+                      </option>
+                      <option value="833">
+                        Isle of Man
+                      </option>
+                      <option value="376">
+                        Israel
+                      </option>
+                      <option value="380">
+                        Italy
+                      </option>
+                      <option value="388">
+                        Jamaica
+                      </option>
+                      <option value="392">
+                        Japan
+                      </option>
+                      <option value="832">
+                        Jersey
+                      </option>
+                      <option value="400">
+                        Jordan
+                      </option>
+                      <option value="398">
+                        Kazakhstan
+                      </option>
+                      <option value="166">
+                        Keeling Islands
+                      </option>
+                      <option value="404">
+                        Kenya
+                      </option>
+                      <option value="296">
+                        Kiribati
+                      </option>
+                      <option value="414">
+                        Kuwait
+                      </option>
+                      <option value="417">
+                        Kyrgyzstan
+                      </option>
+                      <option value="418">
+                        Laos
+                      </option>
+                      <option value="428">
+                        Latvia
+                      </option>
+                      <option value="422">
+                        Lebanon
+                      </option>
+                      <option value="426">
+                        Lesotho
+                      </option>
+                      <option value="430">
+                        Liberia
+                      </option>
+                      <option value="434">
+                        Libya
+                      </option>
+                      <option value="438">
+                        Liechtenstein
+                      </option>
+                      <option value="440">
+                        Lithuania
+                      </option>
+                      <option value="442">
+                        Luxembourg
+                      </option>
+                      <option value="446">
+                        Macao
+                      </option>
+                      <option value="807">
+                        Macedonia
+                      </option>
+                      <option value="450">
+                        Madagascar
+                      </option>
+                      <option value="454">
+                        Malawi
+                      </option>
+                      <option value="458">
+                        Malaysia
+                      </option>
+                      <option value="462">
+                        Maldives
+                      </option>
+                      <option value="466">
+                        Mali
+                      </option>
+                      <option value="470">
+                        Malta
+                      </option>
+                      <option value="584">
+                        Marshall Islands
+                      </option>
+                      <option value="474">
+                        Martinique
+                      </option>
+                      <option value="478">
+                        Mauritania
+                      </option>
+                      <option value="480">
+                        Mauritius
+                      </option>
+                      <option value="175">
+                        Mayotte
+                      </option>
+                      <option value="484">
+                        Mexico
+                      </option>
+                      <option value="583">
+                        Micronesia
+                      </option>
+                      <option value="498">
+                        Moldova
+                      </option>
+                      <option value="492">
+                        Monaco
+                      </option>
+                      <option value="496">
+                        Mongolia
+                      </option>
+                      <option value="499">
+                        Montenegro
+                      </option>
+                      <option value="500">
+                        Montserrat
+                      </option>
+                      <option value="504">
+                        Morocco
+                      </option>
+                      <option value="508">
+                        Mozambique
+                      </option>
+                      <option value="104">
+                        Myanmar
+                      </option>
+                      <option value="516">
+                        Namibia
+                      </option>
+                      <option value="520">
+                        Nauru
+                      </option>
+                      <option value="524">
+                        Nepal
+                      </option>
+                      <option value="528">
+                        Netherlands
+                      </option>
+                      <option value="530">
+                        Netherlands Antilles
+                      </option>
+                      <option value="540">
+                        New Caledonia
+                      </option>
+                      <option value="554">
+                        New Zealand
+                      </option>
+                      <option value="558">
+                        Nicaragua
+                      </option>
+                      <option value="562">
+                        Niger
+                      </option>
+                      <option value="566">
+                        Nigeria
+                      </option>
+                      <option value="570">
+                        Niue
+                      </option>
+                      <option value="574">
+                        Norfolk Island
+                      </option>
+                      <option value="580">
+                        Northern Mariana Islands
+                      </option>
+                      <option value="578">
+                        Norway
+                      </option>
+                      <option value="512">
+                        Oman
+                      </option>
+                      <option value="586">
+                        Pakistan
+                      </option>
+                      <option value="585">
+                        Palau
+                      </option>
+                      <option value="275">
+                        Palestine
+                      </option>
+                      <option value="591">
+                        Panama
+                      </option>
+                      <option value="598">
+                        Papua New Guinea
+                      </option>
+                      <option value="600">
+                        Paraguay
+                      </option>
+                      <option value="604">
+                        Peru
+                      </option>
+                      <option value="608">
+                        Philippines
+                      </option>
+                      <option value="612">
+                        Pitcairn
+                      </option>
+                      <option value="616">
+                        Poland
+                      </option>
+                      <option value="620">
+                        Portugal
+                      </option>
+                      <option value="630">
+                        Puerto Rico
+                      </option>
+                      <option value="634">
+                        Qatar
+                      </option>
+                      <option value="178">
+                        Republic of Congo
+                      </option>
+                      <option value="638">
+                        Réunion
+                      </option>
+                      <option value="642">
+                        Romania
+                      </option>
+                      <option value="643">
+                        Russia
+                      </option>
+                      <option value="646">
+                        Rwanda
+                      </option>
+                      <option value="654">
+                        Saint Helena
+                      </option>
+                      <option value="659">
+                        Saint Kitts and Nevis
+                      </option>
+                      <option value="662">
+                        Saint Lucia
+                      </option>
+                      <option value="666">
+                        Saint Pierre and Miquelon
+                      </option>
+                      <option value="670">
+                        Saint Vincent and the Grenadines
+                      </option>
+                      <option value="652">
+                        Saint-Barthélemy
+                      </option>
+                      <option value="663">
+                        Saint-Martin (French part)
+                      </option>
+                      <option value="882">
+                        Samoa
+                      </option>
+                      <option value="674">
+                        San Marino
+                      </option>
+                      <option value="678">
+                        Sao Tome and Principe
+                      </option>
+                      <option value="682">
+                        Saudi Arabia
+                      </option>
+                      <option value="686">
+                        Senegal
+                      </option>
+                      <option value="688">
+                        Serbia
+                      </option>
+                      <option value="690">
+                        Seychelles
+                      </option>
+                      <option value="694">
+                        Sierra Leone
+                      </option>
+                      <option value="702">
+                        Singapore
+                      </option>
+                      <option value="703">
+                        Slovakia
+                      </option>
+                      <option value="705">
+                        Slovenia
+                      </option>
+                      <option value="90">
+                        Solomon Islands
+                      </option>
+                      <option value="706">
+                        Somalia
+                      </option>
+                      <option value="710">
+                        South Africa
+                      </option>
+                      <option value="239">
+                        South Georgia and the South Sandwich Islands
+                      </option>
+                      <option value="410" selected="selected">
+                        South Korea
+                      </option>
+                      <option value="724">
+                        Spain
+                      </option>
+                      <option value="144">
+                        Sri Lanka
+                      </option>
+                      <option value="736">
+                        Sudan
+                      </option>
+                      <option value="740">
+                        Suriname
+                      </option>
+                      <option value="744">
+                        Svalbard and Jan Mayen Islands
+                      </option>
+                      <option value="748">
+                        Swaziland
+                      </option>
+                      <option value="752">
+                        Sweden
+                      </option>
+                      <option value="756">
+                        Switzerland
+                      </option>
+                      <option value="158">
+                        Taiwan
+                      </option>
+                      <option value="762">
+                        Tajikistan
+                      </option>
+                      <option value="834">
+                        Tanzania
+                      </option>
+                      <option value="764">
+                        Thailand
+                      </option>
+                      <option value="626">
+                        Timor-Leste
+                      </option>
+                      <option value="768">
+                        Togo
+                      </option>
+                      <option value="772">
+                        Tokelau
+                      </option>
+                      <option value="776">
+                        Tonga
+                      </option>
+                      <option value="780">
+                        Trinidad and Tobago
+                      </option>
+                      <option value="788">
+                        Tunisia
+                      </option>
+                      <option value="792">
+                        Turkey
+                      </option>
+                      <option value="795">
+                        Turkmenistan
+                      </option>
+                      <option value="796">
+                        Turks and Caicos Islands
+                      </option>
+                      <option value="798">
+                        Tuvalu
+                      </option>
+                      <option value="800">
+                        Uganda
+                      </option>
+                      <option value="804">
+                        Ukraine
+                      </option>
+                      <option value="784">
+                        United Arab Emirates
+                      </option>
+                      <option value="826">
+                        United Kingdom
+                      </option>
+                      <option value="840">
+                        United States
+                      </option>
+                      <option value="858">
+                        Uruguay
+                      </option>
+                      <option value="860">
+                        Uzbekistan
+                      </option>
+                      <option value="548">
+                        Vanuatu
+                      </option>
+                      <option value="862">
+                        Venezuela
+                      </option>
+                      <option value="704">
+                        Viet Nam
+                      </option>
+                      <option value="850">
+                        Virgin Islands, U.S.
+                      </option>
+                      <option value="876">
+                        Wallis and Futuna Islands
+                      </option>
+                      <option value="732">
+                        Western Sahara
+                      </option>
+                      <option value="887">
+                        Yemen
+                      </option>
+                      <option value="894">
+                        Zambia
+                      </option>
+                      <option value="716">
+                        Zimbabwe
+                      </option>
+                    </select>
+                  </div>
+                </fieldset>
+              </div>
+              <!-- Moved profile_split right with phone number up the page -->
+              <!-- p style="clear:both;"></p -->
+              <!-- moved profile_bottom with city/state/province up the page -->
+              <!-- p style="clear:both;" -->
+              <div class="actions">
+                <input class="primary btn" name="commit" onclick="submitProfileForm(1)" type="submit" value="Save"> <!-- Added class primary btn -->
+              </div>
+              <!--/p -->
+              <!-- div id="save_button_1" style="float: left; margin-left: 10px; color: #2D475E; font-weight: bold;"></div -->
+            </div>
+          </form>
+        </div>
+        
+        <!-- Remove profile_form_2 -->
+        <!-- Remove profile_form_3 -->
+        <!-- Remove profile_form_4 -->
+      </div>
+      <!-- div style="clear: both;"></div>
+      <div style="clear:both"></div -->
+    </div>
+  </body>
+</html>
