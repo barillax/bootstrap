@@ -11,9 +11,13 @@
 }
 
 body {
+  .navbar {
+    min-width: 650px;
+  }
+  min-width: 880px;
   padding-top: 40px;
   background-color: @backgroundDark;
-  background: @backgroundDark url(./img/bg.png) repeat fixed;
+  background: @backgroundDark url(../img/bg.png) repeat fixed;
   .standardFonts();
   h1, h2, h3, h4, h5, h6, p { .standardFonts(); }
   color: @ksBodyText;
@@ -40,58 +44,61 @@ body {
   h1, h2, h3, h4, h5, h6, p { .koreanFonts(); }
 }
 
-.topbar .logo {
+.navbar .logo {
   padding: 5px 0px 0px;
   margin-left: 5px;
   margin-right: 20px;
 }
-.topbar .rslogo {
+.navbar .rslogo {
   padding: 0px 0px 0px;
   margin-left: 0px;
   margin-bottom: -20px;
 }
 
-.topbar .vr {
-  border-left: 1px solid #040404;
-  border-right: 1px solid #2F2F2F;
-  height: 26px;
-  display: inline-block;
-  margin: 6px 3px 1px 3px;
-}
-
-.topbar .me-icon, .topbar .help-icon {
+.navbar .me-icon, .navbar .help-icon {
   margin-top: -10px;
   margin-bottom: -10px;
   padding: 0px 5px 5px;
 }
 
-.no-arrow { content: none; }
-.no-arrow::after { content: none; }
-a.menu:after,
-.dropdown-toggle:after {
-  content: none;
+.navbar .divider-vertical {
+  margin: 0;
 }
 
-// overall layout changes
+.navbar .dropdown-menu {
+  margin-right: 5px;
+}
+
+// History
+
+// Overall layout changes
+
 .container-fluid {
-  min-width: 600px; //min-width: 840px; // 40px less than 880 to account for paddings
-  
   > .sidebar {
-    position: fixed;
+    position: absolute;
     top: 40px;
     left: 20px;
     width: 200px;
     padding-top: 20px;
-    
+  
     h1 {
       color: white;
     }
-    
+  
     h2, h3, h4, h5 {
       color: @ksHeaderText;
     }
   }
   > .content { margin-left: 220px; }
+}
+
+// For better browsers, make the sidebar fixed on the left when wide enough
+@media (min-width: 881px) {
+  .container-fluid {
+    .sidebar {
+      position: fixed;
+    }
+  }
 }
 
 // Profile
@@ -106,7 +113,7 @@ body.profile {
   h1, h2, h3, h4, h5, h6, p { color: @ksHeaderText_profile; }
   
   // Profile tabs
-  .tabs {
+  .nav-tabs {
     margin-bottom: 0px;
     > li {
       > a {
@@ -160,9 +167,13 @@ body.profile {
   
   form {
     padding-right: 20px;
-    
-    .actions {
+    padding-left: 20px;
+    label {
+      font-weight: bold;
+    }
+    .form-actions {
       margin-right: -20px;
+      margin-left: -20px;
       margin-bottom: -18px;
       padding-left: 20px;
     }
@@ -223,10 +234,6 @@ body.profile {
     left: 0px;
   }
   
-  .close {
-    margin-top: 8px;
-  }
-  
   #modal_avatar_chooser {
     display: block;
     width: 750px;
@@ -240,6 +247,7 @@ body.profile {
     border-color: rgb(170, 170, 170);
     border-image: initial;
     background-color: #fff;
+    img { max-width: none; }
   }
   
   #profile_main {
@@ -268,6 +276,9 @@ body.profile {
   
   .filter_title {
     float: left;
+    clear: left;
+    margin-bottom: 10px;
+    margin-top: 8px;
   }
   select.filter {
     float: left;
@@ -342,6 +353,18 @@ body.profile {
       margin-left: -20px;
       label {
         margin-right: 10px;
+      }
+      &.rs-form-horizontal {
+        label {
+          padding-top: 6px;
+          font-size: 13px;
+          line-height: 18px;
+          float: left;
+          width: 120px;
+          text-align: right;
+          color: #404040;
+          font-weight: normal;
+        }
       }
     }
   }
@@ -428,12 +451,12 @@ body.profile {
 	border: 0;
   
   &.npc {
-    background-image: url(./img/model-playback-mousedown.png);
-    &:hover { background-image: url(./img/model-playback-mouseover.png); }
+    background-image: url(../img/model-playback-mousedown.png);
+    &:hover { background-image: url(../img/model-playback-mouseover.png); }
   }
   &.user {
-    background-image: url(./img/learner-playback-mousedown.png);
-    &:hover { background-image: url(./img/learner-playback-mouseover.png); }
+    background-image: url(../img/learner-playback-mousedown.png);
+    &:hover { background-image: url(../img/learner-playback-mouseover.png); }
   }
 }
 
@@ -450,11 +473,12 @@ body.profile {
 }
 
 .rehearsal-session-list {
-  margin-top: 73px;
+  margin-top: 56px;
   
   #session-table {
     border-collapse: separate; // lets us put borders at top and bottom of rows
     *border-collapse: collapse; // IE 7
+    width: 100%;
     
     // Border radii
     thead tr:first-child td:first-child {

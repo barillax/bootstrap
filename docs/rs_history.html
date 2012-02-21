@@ -4,39 +4,40 @@
     <meta charset="utf-8">
     <title>Rosetta Stone ReFLEX</title>
     <!-- styles -->
-    <link href="styles.min.css" rel="stylesheet">
+    <link href="./assets/css/styles.min.css" rel="stylesheet">
     <link href="http://localhost/~oratner/favicon_16x16.ico" rel="shortcut icon" type="image/ico">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    
     <!-- Begin Javascript -->
     <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script src="./js/bootstrap-dropdown.js"></script>
-    <script src="./js/bootstrap-twipsy.js"></script>
-    <script src="./js/bootstrap-modal.js"></script>
-    <script src="./js/nav.js"></script>
+    <script src="./assets/js/bootstrap-dropdown.js"></script>
+    <script src="./assets/js/bootstrap-tooltip.js"></script>
+    <script src="./assets/js/bootstrap-modal.js"></script>
+    <script src="./assets/js/bootstrap-transition.js"></script>
+    <script src="./assets/js/nav.js"></script>
   </head>
 
-  <body>
-    <div class="topbar">
-      <div class="topbar-inner">
+  <body class="history">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand rslogo"><img src="./img/rosetta_stone_logo_large2.png"></a>
+          <a class="brand rslogo"><img src="./assets/img/rosetta_stone_logo_large2.png"></a>
           <a class="brand logo" href="#"><img src="http://resources.rosettastone.com/assets/comm/1329419739/images/logos/reflex-logo-small-dark.png"></a>
-          <ul class="nav secondary-nav">
+          <ul class="nav pull-right">
             <li><a href="#">Home</a></li>
             <li><a href="#">World</a></li>
-            <li><span class="vr"></span></li>
-            <li><a href="profile.html" data-placement="below" rel='twipsy' title='Profile &amp; Subscription'><img alt="Ori" class="me-icon" height="19" src="http://resources.rosettastone.com/assets/comm/1322663661/images/avatars/large/headphonesrr.png" width="19">Tazuki</a></li>
-            <li><span class="vr"></span></li>
-            <li class="dropdown" data-dropdown="dropdown">
-              <a class="dropdown-toggle no-arrow" href="#">
-                <img class="help-icon" src="./img/down_arrow.png" -->
+            <li class="divider-vertical"></li>
+            <li id="profile_nav_li"><a href="rs_profile.html" rel="tooltip" title="Profile &amp; Subscription"><img alt="Ori" class="me-icon" height="19" src="http://resources.rosettastone.com/assets/comm/1322663661/images/avatars/large/headphonesrr.png" width="19">Tazuki</a></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <img class="help-icon" src="./assets/img/down_arrow.png">
               </a>
               <ul class="dropdown-menu">
-                <li class="active"><a href="#">History</a></li>
+                <li><a href="rs_history.html">History</a></li>
                 <li class="divider"></li>
                 <li><a data-controls-modal="report_abuse_modal" data-toggle="modal" href="#report_abuse_modal">Report Abuse</a></li>
                 <li><a href="#">Help &amp; Support</a></li>
@@ -46,12 +47,13 @@
               </ul>
             </li>
           </ul>
+        
         </div>
       </div>
     </div>
     
     <!-- Report Abuse Form and script -->
-    <div class="modal hide" id="report_abuse_modal" style="margin-bottom: 0px; margin-top: 0px; top: 70px; display: none;">
+    <div class="modal" id="report_abuse_modal" style="margin-bottom: 0px; margin-top: 0px; top: 70px; display: none;">
       <div class="modal-header">
         <a class="close" data-dismiss="modal" href="#" id="report_abuse_x">×</a>
         <h3>_("Report_Abuse18579467")</h3>
@@ -73,7 +75,7 @@
           </div>
           <div class="modal-footer">
             <input type="button" class="btn" value="Cancel923418370" id="cancel_abuse_report">
-            <input type="submit" class="btn primary" value="Save937482090" id="submit_abuse_report">
+            <input type="submit" class="btn btn-primary" value="Save937482090" id="submit_abuse_report">
           </div>
         </form>
       </div>
@@ -95,14 +97,14 @@
         <div class="boxed">
           <h3>Rehearsal &amp; Studio</h3>
           <ul>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon1.png">Flower Shop</a></li>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon2.png">Engine Trouble</a></li>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon3.png">Office Visit</a></li>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon4.png">Family Pictures</a></li>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon5.png">Jet Plane</a></li>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon3.png">Concierge</a></li>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon2.png">Lost in the City</a></li>
-            <li><a href="#"><img width="37" height="22" src="./img/convo_icon4.png">The Invite</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon1.png">Flower Shop</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon2.png">Engine Trouble</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon3.png">Office Visit</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon4.png">Family Pictures</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon5.png">Jet Plane</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon3.png">Concierge</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon2.png">Lost in the City</a></li>
+            <li><a href="#"><img width="37" height="22" src="./assets/img/convo_icon4.png">The Invite</a></li>
           </ul>
         </div>
       </div>
@@ -113,10 +115,10 @@
           <thead>
             <tr class="conversation-header">
               <td class="conversation-image">
-                <img src="./img/convo_title.png">
+                <img src="./assets/img/convo_title.png">
               </td>
               <td colspan="2" class="conversation-info">
-                <img src="./img/convo_avatar.png">
+                <img src="./assets/img/convo_avatar.png">
                 <div class="conversation-names">
                   <p class="convo-header small">Terry</p>
                   <p class="convo-header">Office Visit</p>
@@ -135,7 +137,7 @@
             <!-- Dialog title row -->
             <tr class="dialog-header">
               <td colspan="2">
-                <img class="dialog-icon" src="./img/transcript-dialog-icon-01.png">
+                <img class="dialog-icon" src="./assets/img/transcript-dialog-icon-01.png">
                 <p class="convo-header small">September 21 &rarr; Dialog 1</p>
               </td>
               <td class="practice">
@@ -148,7 +150,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -161,8 +163,8 @@
             <!-- User utterance: correct -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -176,7 +178,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -189,8 +191,8 @@
             <!-- User utterance: incorrect -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -205,7 +207,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -218,8 +220,8 @@
             <!-- User utterance: correct -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -233,7 +235,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -246,8 +248,8 @@
             <!-- User utterance: incorrect -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -262,7 +264,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -275,8 +277,8 @@
             <!-- User utterance: correct -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -290,7 +292,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -303,8 +305,8 @@
             <!-- User utterance: incorrect -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -319,7 +321,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -332,8 +334,8 @@
             <!-- User utterance: correct -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -347,7 +349,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -360,8 +362,8 @@
             <!-- User utterance: incorrect -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -376,7 +378,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -389,8 +391,8 @@
             <!-- User utterance: correct -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-correct.png" width="16" height="16" alt="Correct"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
@@ -404,7 +406,7 @@
             <!-- NPC utterance -->
             <tr class="utterance npc">
               <td class="avatar">
-                <img src="./img/npc_avatar.png">
+                <img src="./assets/img/npc_avatar.png">
               </td>
               <td class="text">
                 <p>I'd like you to meet someone, Terry.</p>
@@ -417,8 +419,8 @@
             <!-- User utterance: incorrect -->
             <tr class="utterance user">
               <td class="avatar">
-                <img src="./img/user_avatar.png">
-                <span class="correctness-icon"><img src="./img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
+                <img src="./assets/img/user_avatar.png">
+                <span class="correctness-icon"><img src="./assets/img/transcript-incorrect.png" width="16" height="16" alt="Incorrect"></span>
               </td>
               <td class="text">
                 <p>Great, I have a few minutes right now.</p>
